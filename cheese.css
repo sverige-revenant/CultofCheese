@@ -1,0 +1,132 @@
+/*  Cheese's Fur: #D9A86C / rgba(217,168,108)
+    Split Complimentary Contrast >3: #475959 / rgba(71,89,89)
+    Split Complimentary Background Highlight: #6C93D9 / rgba(108,147,217)
+    */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(71,89,89);
+    color: rgba(217,168,108);
+}
+
+a:link {
+    color: lightseagreen;
+}
+
+a:visited {
+    color: lightcoral;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: lightcoral;
+}
+
+header {
+    font-family: 'Brush Script MT', cursive;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(0,0,0,0.3);
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    display: inline;
+}
+
+.logo-top-left {
+    position: fixed;
+    left: 20px;
+    top: 10px;
+    height: 100px;
+}
+
+.logo-top-right {
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    height: 100px;
+}
+
+.menu-line {
+    display: flex;
+    background-color: dodgerblue;
+}
+
+.dropbtn {
+    background-color: rgba(71,89,89);
+    color: rgba(217,168,108);
+    padding: 16px;
+    font-size: 16px;
+    margin-left: 2px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+}
+
+.menu:hover .dropdown-links {
+    display: block;
+}
+
+.menu:hover .dropbtn {
+    background-color: rgba(108,147,217);
+}
+
+.dropdown-links {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(108,147,217,0.2);
+    z-index: 1;
+}
+
+.dropdown-links a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.countdown {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(108,147,217,0.2);
+    z-index: 1;
+}
+
+.menu:hover .countdown {
+    display: block;
+}
+
+.time-container {
+    display: inline;
+    min-width: 320px;
+}
+
+.label {
+    display: inline;
+}

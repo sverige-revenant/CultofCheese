@@ -1,11 +1,16 @@
-const heroicDays = document.getElementById("heroic-countdown-days");
-const heroicHours = document.getElementById("heroic-countdown-hours");
-const heroicMinutes = document.getElementById("heroic-countdown-minutes");
-const heroicSeconds = document.getElementById("heroic-countdown-seconds");
-const mythicDays = document.getElementById("mythic-countdown-days");
-const mythicHours = document.getElementById("mythic-countdown-hours");
-const mythicMinutes = document.getElementById("mythic-countdown-minutes");
-const mythicSeconds = document.getElementById("mythic-countdown-seconds");
+class TargetDate {
+  constructor(days,hours,minutes,seconds,difficulty) {
+    this.days=days;
+    this.hours=hours;
+    this.minutes=minutes;
+    this.seconds=seconds;
+    this.difficulty=difficulty;
+    document.getElementById(difficulty + "-countdown-days").innerHTML = this.days;
+    document.getElementById(difficulty + "-countdown-hours").innerHTML = this.hours;
+    document.getElementById(difficulty + "-countdown-minutes").innerHTML = this.minutes;
+    document.getElementById(difficulty + "-countdown-seconds").innerHTML = this.seconds;
+  }
+}
 
 var getNextDay = function (dayName) {
     var date = new Date();
@@ -34,29 +39,20 @@ function timer () {
   } else {
     mythicTargetDate = getNextDay('saturday');
   }
-  const currentDate = new Date();
-  const heroicDifference = heroicTargetDate - currentDate;
-  const mythicDifference = mythicTargetDate - currentDate;
+  const heroicDifference = heroicTargetDate - date;
+  const mythicDifference = mythicTargetDate - date;
 
-  const hDays = Math.floor(heroicDifference / 1000 / 60 / 60 / 24);
-  const hHours = Math.floor(heroicDifference / 1000 / 60 / 60) % 24;
-  const hMinutes = Math.floor(heroicDifference / 1000 / 60) % 60;
-  const hSeconds = Math.floor(heroicDifference / 1000) % 60;
+  const heroic = new TargetDate(Math.floor(heroicDifference / 1000 / 60 / 60 / 24),
+                                Math.floor(heroicDifference / 1000 / 60 / 60) % 24,
+                                Math.floor(heroicDifference / 1000 / 60) % 60,
+                                Math.floor(heroicDifference / 1000) % 60,
+                                "heroic");
 
-  const mDays = Math.floor(mythicDifference / 1000 / 60 / 60 / 24);
-  const mHours = Math.floor(mythicDifference / 1000 / 60 / 60) % 24;
-  const mMinutes = Math.floor(mythicDifference / 1000 / 60) % 60;
-  const mSeconds = Math.floor(mythicDifference / 1000) % 60;
-
-  heroicDays.innerHTML = hDays;
-  heroicHours.innerHTML = hHours;
-  heroicMinutes.innerHTML = hMinutes;
-  heroicSeconds.innerHTML = hSeconds;
-
-  mythicDays.innerHTML = mDays;
-  mythicHours.innerHTML = mHours;
-  mythicMinutes.innerHTML = mMinutes;
-  mythicSeconds.innerHTML = mSeconds;
+  const mythic = new TargetDate(Math.floor(mythicDifference / 1000 / 60 / 60 / 24),
+                                Math.floor(mythicDifference / 1000 / 60 / 60) % 24,
+                                Math.floor(mythicDifference / 1000 / 60) % 60,
+                                Math.floor(mythicDifference / 1000) % 60,
+                                "mythic");
 }
 
 setInterval(timer, 1000);

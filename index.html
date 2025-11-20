@@ -1,68 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="cheese.css">
-    <title>The Cult of Cheese</title>
-</head>
-<body>
-    <header>
-        <h1>The Cult of Cheese</h1>
-    </header>
-    <main>
-        <img src="img/cheeseface.jpg" class="logo-top-left" alt="Cheese's face.">
-        <img src="img/cheeseevil.jpg" class="logo-top-right" alt="Cheese with evil eyes.">
-        <div class="menu-line">
-            <div class="menu" style="float:left;">
-                <button class="dropbtn">Links</button>
-                <div class="dropdown-links" style="float:left;">
-                    <a href="https://guildsofwow.com/the-cult-of-cheese" target="_blank">Guilds of WoW</a>
-                    <a href="https://www.warcraftlogs.com/guild/us/stormrage/the%20cult%20of%20cheese" target="_blank">Warcraft Logs</a>
-                    <a href="https://raider.io/guilds/us/stormrage/The%20Cult%20Of%20Cheese" target="_blank">Raider.io</a>
-                </div>
-            </div>
-            <div class="menu" style="float:left;">
-                <button class="dropbtn">Leaders</button>
-                <div class="dropdown-links" style="float:left;">
-                    <a href="roster/paigeuwu.html">PaigeUwU</a>
-                    <a href="roster/poptartey.html">Poptartey</a>
-                </div>
-            </div>
-            <div class="menu" style="float:left;">
-                <button class="dropbtn" id="countdown">Countdowns</button>
-                <div class="countdown" style="float:left;">
-                    <section>
-                        <div class="time-container" style="float:left;">
-                            <p>Heroic: </p>
-                            <span id="heroic-countdown-days" class="time">00</span>
-                            <span class="label">days</span>
-                            <span id="heroic-countdown-hours" class="time">00</span>
-                            <span class="label">hours</span>
-                            <span id="heroic-countdown-minutes" class="time">00</span>
-                            <span class="label">minutes</span>
-                            <span id="heroic-countdown-seconds" class="time">00</span>
-                            <span class="label">seconds</span>
-                        </div>
-                        <div class="time-container" style="float:left;">
-                            <p>Mythic: </p>
-                            <span id="mythic-countdown-days" class="time">00</span>
-                            <span class="label">days</span>
-                            <span id="mythic-countdown-hours" class="time">00</span>
-                            <span class="label">hours</span>
-                            <span id="mythic-countdown-minutes" class="time">00</span>
-                            <span class="label">minutes</span>
-                            <span id="mythic-countdown-seconds" class="time">00</span>
-                            <span class="label">seconds</span>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy;2025 <a href="../GNU GPL v3/COPYING.html">GNU GPLv3</a> Childerss. All Rights Reserved.</p>
-    </footer>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="cheese.css">
+        <title>The Cult of Cheese</title>
+    </head>
+    <body>
+        <header id="dynamic-header"></header>
+        <div id="header-placeholder"></div>
+
+        <script>
+            fetch("./header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("dynamic-header").innerHTML = data;
+                })
+                .catch(error => console.error('Error loading header:', error));
+        </script>
+        <main>
+
+        </main>
+        <footer>
+            <p>&copy;2025 <a href="../GNU GPL v3/COPYING.html">GNU GPLv3</a> Childerss. All Rights Reserved.</p>
+        </footer>
+    </body>
     <script src="src/Timers.js"></script>
-</body>
 </html>
